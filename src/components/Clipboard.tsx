@@ -4,11 +4,13 @@ import { useEffect, useState, useRef } from "react";
 import { useDebouncedCallback } from "use-debounce";
 import { supabase } from "@/lib/supabase";
 import { Loader2, Save } from "lucide-react";
+import ErrorLog from "./ErrorLog";
 
 export default function Clipboard({ session }: { session: any }) {
     const [text, setText] = useState("");
     const [status, setStatus] = useState<"saved" | "saving" | "error" | "idle">("idle");
     const [loading, setLoading] = useState(true);
+    const [saveError, setSaveError] = useState<string | null>(null);
     const textareaRef = useRef<HTMLTextAreaElement>(null);
 
     // Fetch initial data
@@ -73,10 +75,17 @@ export default function Clipboard({ session }: { session: any }) {
         );
 
         if (error) {
-            console.error(error);
+            console.error("Supabase Save Error Details:", {
+                message: error.message,
+                code: error.code,
+                details: error.details,
+                hint: error.hint
+            });
             setStatus("error");
+            setSaveError(`${error.message} (Code: ${error.code})`);
         } else {
             setStatus("saved");
+            setSaveError(null);
             setTimeout(() => setStatus("idle"), 2000);
         }
     }, 1000);
@@ -105,6 +114,7 @@ export default function Clipboard({ session }: { session: any }) {
                 autoFocus
                 spellCheck={false}
             />
+            <ErrorLog error={saveError} onClose={() => setSaveError(null)} />
         </div>
     );
 }

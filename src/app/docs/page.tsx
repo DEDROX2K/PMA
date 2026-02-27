@@ -5,10 +5,12 @@ import { supabase } from "@/lib/supabase";
 import Link from "next/link";
 import { Plus, FileText, ChevronLeft } from "lucide-react";
 import { useRouter } from "next/navigation";
+import ErrorLog from "@/components/ErrorLog";
 
 export default function DocsPage() {
     const [docs, setDocs] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
+    const [dbError, setDbError] = useState<string | null>(null);
     const router = useRouter();
 
     useEffect(() => {
@@ -21,6 +23,11 @@ export default function DocsPage() {
                 .select("*")
                 .eq("user_id", session.user.id)
                 .order("updated_at", { ascending: false });
+
+            if (error) {
+                console.error("Fetch Docs Error:", error);
+                setDbError(error.message || JSON.stringify(error));
+            }
 
             if (data) {
                 setDocs(data);
@@ -46,7 +53,10 @@ export default function DocsPage() {
             .select()
             .single();
 
-        if (data) {
+        if (error) {
+            console.error("Create Doc Error:", error);
+            setDbError(error.message || JSON.stringify(error));
+        } else if (data) {
             router.push(`/docs/${data.id}`);
         }
     };
@@ -93,6 +103,7 @@ export default function DocsPage() {
                     )}
                 </div>
             )}
+            <ErrorLog error={dbError} onClose={() => setDbError(null)} />
         </div>
     );
 }

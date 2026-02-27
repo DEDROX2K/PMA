@@ -1,23 +1,23 @@
 {
-  "name": "Cloud Clipboard",
-  "short_name": "Clipboard",
-  "description": "Realtime Cloud Clipboard & Docs",
+  "name": "Air Paste",
+  "short_name": "Air Paste",
+  "description": "Air Paste",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#000000",
   "icons": [
     {
-      "src": "/web-app-manifest-192x192.png",
+      "src": "/logo.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "maskable"
+      "purpose": "any maskable"
     },
     {
-      "src": "/web-app-manifest-512x512.png",
+      "src": "/logo.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "maskable"
+      "purpose": "any maskable"
     }
   ]
 }

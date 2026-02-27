@@ -61,7 +61,12 @@ export default function Editor({ docId, initialContent }: { docId: string, initi
             .eq('id', docId);
 
         if (error) {
-            console.error(error);
+            console.error("Supabase Save Error Details:", {
+                message: error.message,
+                code: error.code,
+                details: error.details,
+                hint: error.hint
+            });
             setStatus("error");
         } else {
             setStatus("saved");

@@ -38,7 +38,7 @@ export default function Home() {
     <main className="flex min-h-screen flex-col bg-white dark:bg-black font-sans">
       <header className="flex items-center justify-between p-4 border-b border-gray-100 dark:border-gray-800">
         <div className="flex items-center gap-2 font-bold text-xl">
-          <ClipboardIcon className="w-6 h-6" /> Cloud Clipboard
+          <ClipboardIcon className="w-6 h-6" /> Air Paste
         </div>
         <nav className="flex items-center gap-4">
           <Link href="/docs" className="flex items-center gap-2 text-gray-500 hover:text-black dark:hover:text-white transition-colors">

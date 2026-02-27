@@ -13,13 +13,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Cloud Clipboard",
-  description: "Realtime Cloud Clipboard & Docs",
+  title: "Air Paste",
+  description: "Air Paste",
   manifest: "/manifest.json",
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
-    title: "Cloud Clipboard",
+    title: "Air Paste",
   },
 };
 
