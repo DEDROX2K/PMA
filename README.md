@@ -4,10 +4,16 @@
 
 # AIR-PASTE
 
-**Your projects. Your data. Your machine.**
+Overwhelmed by Notion/Jira/ClickUp bloat?
+**No noise. No team politics. No enterprise clutter. Just build.**
 
-A modern, personal project management tool designed for privacy.
-Runs 100% locally. Free and Open Source forever.
+We target you:
+- Solo dev
+- Indie hacker
+- Early-stage founder
+- Builder working alone
+
+Free and Open Source forever.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![Privacy Focused](https://img.shields.io/badge/Privacy-100%25_Local-success)
