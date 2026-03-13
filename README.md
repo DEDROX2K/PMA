@@ -1,6 +1,5 @@
 <div align="center">
 
-<img src="./logo.png" alt="AIR-PASTE Logo" width="200" height="auto" />
 
 # AIR-PASTE
 
